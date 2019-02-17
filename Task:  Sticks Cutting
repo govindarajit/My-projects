@@ -1,0 +1,20 @@
+/* Task:  Sticks Cutting */
+
+import java.util.*; 
+public class sticks {
+public static void sticks(int n, int[] a){
+    Arrays.sort(a); int count = 0;
+    while (a[n-1] != 0) {
+        int value = a[count];
+        System.out.print(n-count+" ");
+        for (int i = count; i < n; i++) {
+            a[i] -= value;
+            if (a[i] == 0) {
+                count = i+1; } } }}
+public static void main(String[] args) {
+          Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = s.nextInt();}
+        sticks(n, a);}}
