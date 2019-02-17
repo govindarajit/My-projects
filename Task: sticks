@@ -1,0 +1,14 @@
+/* Task:  Sticks Cutting */
+
+import java.util.*;
+public class  Election {
+public static void Electionn(String[] str){
+	Map<String, Integer> map = new TreeMap<>(Collections.reverseOrder());
+    for (String k  : str) {
+        if (map.containsKey(k)) {
+            map.put(k , map.get(k ) + 1);
+        } else { map.put(k ,1); }}
+      System.out.println(Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey());}
+    public static void main(String[] args) {
+        String[] candidates = { "Jessy", "Philip", "Jessy", "Philip" };
+        Electionn(candidates); }}
