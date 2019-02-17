@@ -15,7 +15,7 @@ String str1=""; String str2="";
 	        if(a[i]!=0){
 	        if(flag == 1)
 	        {  c1++;
-	           str1+=a[i]; }
+	           str1+=a[i];}
 	        else if(flag == 0)
 	        {	c2++;str2+=a[i]; }} }
 	    char[] ch1=str1.toCharArray();
