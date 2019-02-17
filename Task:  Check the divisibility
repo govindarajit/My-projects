@@ -1,0 +1,34 @@
+/* Task:  Check the divisibility */
+
+import java.util.Scanner;
+  class challenge 
+{ 
+	  private void per(String str, int n, int m) 
+		{ 	int[] a=new int[500];
+			int temp=0;
+			if (n == m) 
+	        { temp=Integer.parseInt(str);
+			if(temp%8==0){
+					System.out.println(temp);} }
+			else	{ for (int i = n; i <= m; i++)	{ 
+					str = swap(str,n,i); 
+					per(str, n+1, m); 
+					str = swap(str,n,i); }}} 
+		public String swap(String a, int i, int j) 
+		{ 	char temp; 
+			char[] charArray = a.toCharArray(); 
+			temp = charArray[i] ; 
+			charArray[i] = charArray[j]; 
+			charArray[j] = temp; 
+			return String.valueOf(charArray);} 
+	public static void main(String[] args) 
+	{ 	Scanner s=new Scanner(System.in);
+		String str = s.next(); 
+		int n = str.length(); 
+		challenge  p = new challenge (); 
+		p.per (str, 0, n-1); 
+	} 
+	
+
+} 
+ 
