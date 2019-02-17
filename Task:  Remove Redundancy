@@ -1,0 +1,41 @@
+/* Task:  Remove Redundancy */
+
+import java.util.*; 
+public class Singly 
+{ 	static class single 
+	{ 
+		int singles; 
+		single n; 
+		public single(int value) 
+		{ 
+			this.singles = value; } 	}
+	static void Redundancy(single head) 
+	{ 	HashSet<Integer> k = new HashSet<>(); 
+		single c = head; 
+		single previous = null; 
+		while (c != null) 
+		{ 
+			int val = c.singles; 
+			if (k.contains(val)) { 
+				previous.n  = c.n ; 
+			} else { 
+				k.add(val); 
+				previous = c; } 
+			c = c.n; } }
+	static void result(single head) 
+	{ 	while (head != null) 
+		{ 	System.out.print(head.singles + " "); 
+			head = head.n; }} 
+	public static void main(String[] args) 
+	{ 	single s = new single(3); 
+		s.n = new single(4); 
+		s.n.n= new single(3); 
+		s.n.n.n = new single(2); 
+		s.n.n.n.n= new single(6); 
+		s.n.n.n.n.n= new single(1); 
+		s.n.n.n.n.n.n= new single(2); 
+		s.n.n.n.n.n.n.n = new single(6); 
+		Redundancy(s); 
+		result(s); 
+	} 
+} 
