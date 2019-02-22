@@ -9,14 +9,14 @@ public class challenge {
             String str = String.valueOf(n);
             k = new ArrayList<Integer>();
       permutation(str, 0, str.length()-1);
-             int flag = -1;
+             int count = -1;
         for(Integer result: k) {
             if(result%8 == 0) {
             	System.out.println("The value which is divisible by 8 is "+result);
-              flag = 1;
+              count = 1;
                 break;
-            }else flag=0;   }
-        if(flag==0)  {
+            }else count=0;   }
+        if(count==0)  {
               System.out.println("NO");
         } }
      private static String swapping(String s, int i, int j) {
