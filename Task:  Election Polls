@@ -10,5 +10,9 @@ public static void Electionn(String[] str){
         } else { map.put(k ,1); }}
       System.out.println(Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey());}
     public static void main(String[] args) {
-        String[] candidates = { "Jessy", "Philip", "Jessy", "Philip" };
-        Electionn(candidates); }}
+       Scanner s=new Scanner(System.in);
+       int n=s.nextInt();
+       String[] candidates=new String[n];
+       for(int i=0;i<n;i++)
+       candidates[i]=s.next();
+    	 Electionn(candidates); }}
