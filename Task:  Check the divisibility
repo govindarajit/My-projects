@@ -1,34 +1,36 @@
 /* Task:  Check the divisibility */
 
-import java.util.Scanner;
-  class challenge 
-{ 
-	  private void per(String str, int n, int m) 
-		{ 	int[] a=new int[500];
-			int temp=0;
-			if (n == m) 
-	        { temp=Integer.parseInt(str);
-			if(temp%8==0){
-					System.out.println(temp);} }
-			else	{ for (int i = n; i <= m; i++)	{ 
-					str = swap(str,n,i); 
-					per(str, n+1, m); 
-					str = swap(str,n,i); }}} 
-		public String swap(String a, int i, int j) 
-		{ 	char temp; 
-			char[] charArray = a.toCharArray(); 
-			temp = charArray[i] ; 
-			charArray[i] = charArray[j]; 
-			charArray[j] = temp; 
-			return String.valueOf(charArray);} 
-	public static void main(String[] args) 
-	{ 	Scanner s=new Scanner(System.in);
-		String str = s.next(); 
-		int n = str.length(); 
-		challenge  p = new challenge (); 
-		p.per (str, 0, n-1); 
-	} 
-	
-
-} 
- 
+import java.util.*;
+public class challenge {
+ private static ArrayList<Integer> k;
+    public static void main(String[] args) {
+           Scanner s  = new Scanner(System.in);
+             String n = s.next ();
+            String str = String.valueOf(n);
+            k = new ArrayList<Integer>();
+      permutation(str, 0, str.length()-1);
+             int flag = -1;
+        for(Integer result: k) {
+            if(result%8 == 0) {
+            	System.out.println("The value which is divisible by 8 is "+result);
+              flag = 1;
+                break;
+            }else flag=0;   }
+        if(flag==0)  {
+              System.out.println("NO");
+        } }
+     private static String swapping(String s, int i, int j) {
+         char[] arr = s.toCharArray();
+         char temp = arr[i];
+          arr[i] =  arr[j];
+          arr[j] = temp;
+         return String.valueOf(arr);}
+    private static void permutation(String s, int m, int n1) {   
+        if(m==n1) {
+            k.add(Integer.parseInt(s));
+            System.out.println(s);
+        } else {
+             for(int i=m; i<=n1; i++) {
+             s = swapping(s, m, i);
+            permutation(s, m+1, n1);
+             s = swapping(s, m, i);  }     }  }}
