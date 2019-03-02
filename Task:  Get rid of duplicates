@@ -3,25 +3,36 @@
 import java.util.*;
 class duplicate
 { 
-	static int getRidOf(int a[], int n) 
+	static int getRidOf(int a[], Long n) 
 	{ 
+		int count=0;
 		if (n == 0 || n == 1) 
-			return n; 
+			return n.intValue(); 
 		int j = 0; 
-		for (int i = 0; i < n-1; i++) 
-			if (a[i] != a[i+1]) 
+		for (int i = 0; i < n-1; i++) {
+			if (a[i] == a[i+1]) {
+			count++;	
+			}
+			if (a[i] != a[i+1]) {
 				a[j++] = a[i]; 
-		a[j++] = a[n-1]; 
-			return j; 
+				}
+		}
+		int m=n.intValue()-1;
+		a[j++] =  a[m]; 
+		System.out.println("The number of duplicate elements in an array is:"+count+" ");
+		 	
+		return j; 
 	} 
 	
 	public static void main (String[] args) 
 	{ 	Scanner s=new Scanner(System.in);
-		int n = s.nextInt();	int[] a=new int[n];
+		Long n = s.nextLong();
+		int n1=0;int[] a=new int[n.intValue()];
 		for(int i=0;i<n;i++)
 		a[i]=s.nextInt();
-		n = getRidOf(a, n);  
-		for (int i=0; i<n; i++) 
+		n1=getRidOf(a, n);  
+		System.out.print("After get rid of the duplicates elements: ");
+		for (int i=0; i<n1; i++) 
 		System.out.print(a[i]+" "); 
 	} 
 } 
