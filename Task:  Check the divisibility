@@ -1,23 +1,33 @@
 /* Task:  Check the divisibility */
 
-import java.util.*;
+ import java.util.*;
 public class challenge {
  private static ArrayList<Integer> k;
     public static void main(String[] args) {
            Scanner s  = new Scanner(System.in);
-             String n = s.next ();
+           int n=0;
+              while (n <= 0) {
+                 System.out.print("Please enter a number: ");
+                 n=Integer.parseInt(s.next());
+                 if (n <= 0) {
+                     System.out.println("Please enter a number above 0:");
+                     continue;
+                 }    }            
             String str = String.valueOf(n);
             k = new ArrayList<Integer>();
       permutation(str, 0, str.length()-1);
-             int count = -1;
-        for(Integer result: k) {
+             int count = 0;
+        
+             for(Integer result: k) {
             if(result%8 == 0) {
-            	System.out.println("The value which is divisible by 8 is "+result);
+            	System.out.println("The value which is divisible by 8 is :) "+result);
               count = 1;
-                break;
-            }else count=0;   }
+               
+            }   
+            }
+             
         if(count==0)  {
-              System.out.println("NO");
+              System.out.println("Sorry, There is no elements are available in the permuted values :( ");
         } }
      private static String swapping(String s, int i, int j) {
          char[] arr = s.toCharArray();
@@ -34,3 +44,6 @@ public class challenge {
              s = swapping(s, m, i);
             permutation(s, m+1, n1);
              s = swapping(s, m, i);  }     }  }}
+
+
+ 
